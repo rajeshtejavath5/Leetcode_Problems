@@ -11,7 +11,6 @@
 # Input: nums = [1,0,1,1,0,1]
 # Output: 2
 
-
 def MaxConsecutiveOnes(nums):
     count=0
     max_count=0
