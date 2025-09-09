@@ -40,39 +40,53 @@
 # sl="Moon starer"
 # s1,s2=sk.strip().lower(),sl.strip().lower()
 # print(s1,s2)
-# # def isanagram(s1,s2):
-# #     if len(s1)!=len(s2):
-# #         return False
-# #     for ch in s1:
-# #         if s1.count(ch)!=s2.count(ch):
-# #             return False
-# #     return True
-# # obj=isanagram(s1,s2)
-# # print(obj)
+# def isanagram(s1,s2):
+#     if len(s1)!=len(s2):
+#         return False
+#     for ch in s1:
+#         if s1.count(ch)!=s2.count(ch):
+#             return False
+#     return True
+# obj=isanagram(s1,s2)
+# print(obj)
 
-def are_anagram(words):
-    if len(words)!=2:
-        return False
-    w1,w2=words
-    w1=w1.replace(" ","").lower()
-    w2=w2.replace(" ","").lower()
-    if len(w1)!=len(w2):
+############################
+
+def is_anagram(words):
+    s1,s2=words
+    s1=s1.replace(" ","").lower()
+    s2=s2.replace(" ","").lower()
+    if len(s1)!=len(s2):
         return False
     else:
-        for ch in w1:
-            if w1.count(ch)!=w2.count(ch):
+        for ch in s1:
+            if ch not in s2:
                 return False
-        return True
+        else:
+            return True
+
+
+testcases = [
+    ("a", "b"),
+    ("aa", "aaa"),
+    ("race", "Race"),
+    ("School Master", "The Classroom"),
+    ("Astronomer", "Moon starer"),
+    ("Debit Card", "Bad Credit"),
+    ("listen", "silent"),
+    ("triangle", "integral"),
+    ("rat", "car"),
+    ("", ""),
+    ("a gentleman", "elegant man"),
+    ("Clint Eastwood", "Old West Action"),
+    ("William Shakespeare", "I am a weakish speller"),
+    ("dormitory", "dirty room"),
+    ("the eyes", "they see"),
+    ("hello", "billion")
+]
+for item in testcases:
+    print(item ,"----->" ,is_anagram(item))
     
-testcases=[
-    ("a","b"),
-    ("aa","aaa"),
-    ("race","Race"),
-    ("School Master","The Classroom")]
-
-for words in testcases:
-    print(words,"--->" ,are_anagram(words))
-
 
 
 
@@ -89,5 +103,15 @@ for words in testcases:
 #     return not stack
 
 
+# "School Master","The Classroom"
+# "Astronomer", "Moon starer"
 
-
+# s1="Astronomer"
+# s2="Moon starer"
+# s3,s4=s1.lower(),s2.lower()
+# for i in s4:
+#     if i not  in s3:
+#         print("not anagram")
+#         break
+# else:
+#     print("anagram yesss")
