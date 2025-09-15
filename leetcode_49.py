@@ -13,7 +13,7 @@
 
 
 
-
+#Approach -1
 # strs=["eat","tea","tan","ate","nat","bat"]
 # res=[]
 # visited=[False]*len(strs)
@@ -40,20 +40,38 @@
 #                 sub.append(second)
 #     if sub:
 #         res.append(sub)
+# for group in res:
+#     group.sort()
+# res.sort(key=lambda x: (len(x), x))
 # print(res)
 
 
 
 #################
-strs=["eat","tea","tan","ate","nat","bat"]
-res = {}
-for word in strs:
-    key = "".join(sorted(word))
-    if key not in res:
-        res[key] = []
-    res[key].append(word)
-output = list(res.values())
-for group in output:
-    group.sort()
-output.sort(key=lambda x: (len(x), x))
-print(output)
+def group_anagrams(strs):
+    res = {}
+    for word in strs:
+        key = "".join(sorted(word))
+        if key not in res:
+            res[key] = []
+        res[key].append(word)
+    output = list(res.values())
+    for group in output:
+        group.sort()
+    output.sort(key=lambda x: (len(x), x))
+    return output
+testcases = [
+    ["eat","tea","tan","ate","nat","bat"],
+    ["a", "b", "c", "a"],
+    ["listen","silent","enlist","google","gooegl"],
+    ["abc","bac","cab","xyz","zyx","yxz","def"],
+    ["rat","tar","art","star","tars","cheese"],
+    ["", ""],
+    ["a gentleman", "elegant man"],
+    ["Astronomer", "Moon starer"],
+]
+for item in testcases:
+    print("input:",item)
+    print("output: ",group_anagrams(item))
+    print()
+
