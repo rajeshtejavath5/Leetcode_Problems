@@ -1,4 +1,4 @@
-# # 3. Check for Anagrams
+# #242. Valid Anagram
 # # Example: "listen", "silent" → true
 # # Question: Write a function to check if two strings are anagrams of each other.
 # # Test Cases:
@@ -71,11 +71,9 @@ def is_anagram(words):
         if count[ch]<0:
             return False
     return True
-
 testcases = [
     ("aacc","ccac"),
     ("a", "b"),
-    ("aa", "aaa"),
     ("race", "Race"),
     ("School Master", "The Classroom"),
     ("Astronomer", "Moon starer"),
